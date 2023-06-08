@@ -143,5 +143,7 @@ dmypy.json
 # Temporary model checkpoints prior to gs bucket transfer
 gs:/
 
-# Datasets at any depth
-**/Dataset
+# Datasets or models at any depth
+**/Dataset/
+*.npy
+*.pt

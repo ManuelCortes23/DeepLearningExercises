@@ -18,7 +18,7 @@ class CatsWithNoiseDataset(Dataset):
     
     def add_noise(self,y):
         newimg = random_shapes((256, 256),min_shapes=30,max_shapes=42,
-                       multichannel=False, min_size=20,max_size=30,allow_overlap=True)[0]/255.0
+                        min_size=20,max_size=30,allow_overlap=True)[0]/255.0
         x = y.copy()
         x[np.where(newimg < 0.9)] = x[np.where(newimg < 0.9)]+1-newimg[newimg < 0.9]
         return x

@@ -33,6 +33,7 @@ class CustomDataset(Dataset):
             img = transforms.RandomRotation(180)( img )
             
         x = transforms.ToTensor()( img )
+        x = x.repeat(3,1,1)
         # ... repeat x over 3 dimensions...
         
         y = self.labels[idx]
