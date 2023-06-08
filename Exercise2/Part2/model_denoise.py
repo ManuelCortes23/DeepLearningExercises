@@ -15,16 +15,16 @@ class Net(nn.Module):
         # First block
         self.layer1 = Conv2d(1, 64, 3, padding = 1, bias = use_bias)
         self.layer2 = BatchNorm2d(64)
-        self.layer3 = ReLU(inplce=True)
+        self.layer3 = ReLU(inplace=True)
         
         #It works like a list in pytorch
         self.central_layers = nn.ModuleList()
-        central_layers_blocks = 0
+        central_layers_blocks = 2
         
         for i in range(central_layers_blocks):
-            self.central_layers.append(Conv2d(1, 64, 3, padding = 1, bias = use_bias))
+            self.central_layers.append(Conv2d(64, 64, 3, padding = 1, bias = use_bias))
             self.central_layers.append(BatchNorm2d(64))
-            self.central_layers.append(ReLU(inplce=True))
+            self.central_layers.append(ReLU(inplace=True))
 
             # Append to self.central_layers conv2d, batch norm and relu as many times as you want
         
